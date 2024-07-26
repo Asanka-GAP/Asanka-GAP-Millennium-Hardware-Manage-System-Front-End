@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row mt-4">
-      <div class="col-4">
+      <div class="col-2">
         <div class="row mt-3">
             <label for="" class="form-label mt-1">Rental Date</label>
             <input
@@ -53,35 +53,37 @@
         </div>
         <div class="row mt-3" *ngIf="rentalObj.fine>=1 && rentalObj.totalCost>=1 &&
              rentalObj.dueDate!='' && rentalObj.rentalDate !='' && rentalObj.returnDate !=''">
-          <button class="btn btn-success" >
+          <button class="btn btn-success" (click)="addRental()" >
   Add Rental
           </button>
         </div>
       </div>
       
-      <div class="col-8">
+      <div class="col-10">
           <table class="table border">
-              <tr class="border text-center bg-black text-white">
+              <tr class=" text-center bg-black text-white">
                   <th>ID</th>
-                  <th>Name</th>
-                  <th>Availability</th>
-                  <th>Rental Per Day</th>
-                  
-                  <th>Fine Per Day</th>
+                  <th>Rental Date</th>
+                  <th>Return Date</th>
+                  <th>Due Date</th>
+                  <th>Total Cost</th>
+                  <th>Fine</th>
                   <th>Update</th>
                   <th>Delete</th>
               </tr>
-              <!-- <tr class="border text-center" *ngFor="let items of itemList; ">
-                  <td>{{items.id}}</td>
-                  <td>{{items.name}}</td>
-                  <td>{{items.availability}}</td>
-                  <td>{{items.rentalPerDay}}
+              <tr class="border text-center" *ngFor="let rental of rentalList; ">
+                  <td>{{rental.id}}</td>
+                  <td>{{rental.rentalDate}}</td>
+                  <td>{{rental.returnDate}}</td>
+                  <td>{{rental.dueDate}}
                   </td>
-                  <td>{{items.finePerDay}}
+                  <td>{{rental.totalCost}}
                 </td>
-                  <td><button class="btn btn-success" (click)="updateItem(items)">update</button></td>
-                  <td><button class="btn btn-danger" (click)="deleteItem(items.id)">delete</button></td>
-              </tr> -->
+                <td>{{rental.fine}}
+                </td>
+                  <td><button class="btn btn-success" (click)="updateRental(rental)">update</button></td>
+                  <td><button class="btn btn-danger" (click)="deleteRental(rental.id)">delete</button></td>
+              </tr>
           </table>
       </div>
     </div>
