@@ -36,7 +36,7 @@ export class RentalComponent {
       .subscribe((res) => {
         Swal.fire({
           title: 'Added Successfully!',
-          text: 'Item Added Successfully',
+          text: 'Rental Added Successfully',
           icon: 'success',
           preConfirm: () => {
             window.location.reload();
