@@ -14,6 +14,7 @@ import Swal from 'sweetalert2';
 export class RentalComponent {
   constructor(private http: HttpClient) {
     this.loadRentalTable();
+    this.getcustomerids();
   }
 
   public rentalObj = {
@@ -23,9 +24,11 @@ export class RentalComponent {
     dueDate: '',
     totalCost: 0,
     fine: 0,
+    customerId:undefined
   };
 
   public rentalList: any;
+  public customers:any;
 
   addRental() {
     this.http
@@ -172,5 +175,13 @@ export class RentalComponent {
           });
       }
     });
+  }
+
+  getcustomerids(){
+    this.http.get("http://localhost:8080/customer/get-all").subscribe(
+      (res)=>{
+        this.customers=res;
+      }
+    )
   }
 }
