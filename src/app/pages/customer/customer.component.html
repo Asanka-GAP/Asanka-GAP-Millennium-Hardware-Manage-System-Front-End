@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-6">
+      <div class="row mt-3">
+        <input
+          type="text"
+          name=""
+          class="form-control"
+          placeholder="Enter Customer Name"
+          [(ngModel)]="customerObj.name"
+        />
+      </div>
+      <div class="row mt-3">
+        <input
+          type="text"
+          name=""
+          class="form-control"
+          placeholder="Enter Customer City"
+          [(ngModel)]="customerObj.city"
+        />
+      </div>
+      <div class="row mt-3">
+        <input
+          type="text"
+          name=""
+          class="form-control"
+          placeholder="Enter Customer Contact"
+          [(ngModel)]="customerObj.contact"
+        />
+      </div>
+      <div class="row mt-3">
+        <button class="btn btn-success" (click)="saveCustomer();">
+Add Customer
+        </button>
+      </div>
+    </div>
+    
+    <div class="col-6">
+        <table class="table border">
+            <tr class="border text-center bg-black text-white">
+                <th>ID</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Contact</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            <tr class="border text-center" *ngFor="let customers of customerList; ">
+                <td>{{customers.id}}</td>
+                <td>{{customers.name}}</td>
+                <td>{{customers.city}}</td>
+                <td>{{customers.contact}}
+                </td>
+                <td><button class="btn btn-success" (click)="updateCustomer(customers);">update</button></td>
+                <td><button class="btn btn-danger" (click)="deleteCustomer(customers.id)">delete</button></td>
+            </tr>
+        </table>
+    </div>
+  </div>
+</div>

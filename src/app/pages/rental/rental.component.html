@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row mt-4">
+      <div class="col-4">
+        <div class="row mt-3">
+            <label for="" class="form-label mt-1">Rental Date</label>
+            <input
+            type="date"
+            name=""
+            class="form-control"
+            [(ngModel)]="rentalObj.rentalDate"
+          />
+        </div>
+        <div class="row mt-3">
+            <label for="" class="form-label mt-1">Return&nbsp;Date</label>
+            
+            <input
+            type="date"
+            name=""
+            class="form-control"
+            [(ngModel)]="rentalObj.returnDate"
+
+          />
+        </div>
+        <div class="row mt-3">
+            <label for="" class="form-label mt-1">Due&nbsp;Date</label>
+            
+            <input
+            type="date"
+            name=""
+            class="form-control"
+            [(ngModel)]="rentalObj.dueDate"
+          />
+        </div>
+        <div class="row mt-3">
+            <label for="" class="form-label mt-1">Total Cost</label>
+            
+            <input
+            type="number"
+            name=""
+            class="form-control"
+            [(ngModel)]="rentalObj.totalCost"
+          />
+        </div>
+        <div class="row mt-3">
+            <label for="" class="form-label mt-1">Fine</label>
+            
+            <input
+            type="number"
+            name=""
+            class="form-control"
+            [(ngModel)]="rentalObj.fine"
+          />
+        </div>
+        <div class="row mt-3" *ngIf="rentalObj.fine>=1 && rentalObj.totalCost>=1 &&
+             rentalObj.dueDate!='' && rentalObj.rentalDate !='' && rentalObj.returnDate !=''">
+          <button class="btn btn-success" >
+  Add Rental
+          </button>
+        </div>
+      </div>
+      
+      <div class="col-8">
+          <table class="table border">
+              <tr class="border text-center bg-black text-white">
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Availability</th>
+                  <th>Rental Per Day</th>
+                  
+                  <th>Fine Per Day</th>
+                  <th>Update</th>
+                  <th>Delete</th>
+              </tr>
+              <!-- <tr class="border text-center" *ngFor="let items of itemList; ">
+                  <td>{{items.id}}</td>
+                  <td>{{items.name}}</td>
+                  <td>{{items.availability}}</td>
+                  <td>{{items.rentalPerDay}}
+                  </td>
+                  <td>{{items.finePerDay}}
+                </td>
+                  <td><button class="btn btn-success" (click)="updateItem(items)">update</button></td>
+                  <td><button class="btn btn-danger" (click)="deleteItem(items.id)">delete</button></td>
+              </tr> -->
+          </table>
+      </div>
+    </div>
+  </div>
+  
